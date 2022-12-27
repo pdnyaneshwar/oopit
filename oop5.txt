@@ -1,0 +1,436 @@
+
+
+import java.util.*;
+
+
+interface vehicle
+{
+    void gear_change(int a);
+    void speed_up();
+    void apply_break();
+    void display();
+}
+
+class bicycle implements vehicle
+{
+    int gear , speed;
+
+    bicycle(){
+        System.out.println("Bicycle started successfully\n");
+        gear=1;
+        speed=10;
+    }
+    public void gear_change(int gearex)
+    {
+        System.out.println("Initial gear is : "+gear);
+        if(gear<7 && gear>0)
+        {
+            gear=gearex;
+            System.out.println("Gear changed Successfully current gear is : "+gear);
+        }
+        else
+        {
+            System.out.println("Gear is out of range\n");
+        }
+
+    }
+
+    public void speed_up()
+    {
+        System.out.println("Initial SPEED is : "+speed);
+        if((speed+5)<50)
+        {
+            speed=speed+5;
+        }
+        else
+        {
+            System.out.println("Speed can not be increased above 50\n");
+        }
+    }
+    public void apply_break()
+    {
+        Scanner get=new Scanner(System.in);
+        int x;
+        System.out.println("1.Decrease speed\n2.Stop vehicle\n\nEnter your choice : ");
+        x=get.nextInt();
+        if(x==1)
+        {
+            if((speed-5)>0)
+            {
+                speed=speed-5;
+                System.out.println("Speed decreased successfully\n");
+            }
+            else
+            {
+                speed=0;
+                System.out.println("Vehicle stoped succefully\n");
+            }
+        }
+        if(x==2)
+        {
+            speed=0;
+            gear=0;
+        }
+        else
+        {
+            System.out.println("!!! INVALID INPUT !!!");
+        }
+
+    }
+    public void display()
+    {
+        System.out.println("Speed is : "+speed+"\tGear is : "+gear);
+    }
+
+}
+
+
+class bike implements vehicle
+{
+    int gear , speed;
+
+    bike(){
+        System.out.println("Bike started successfully\n");
+        gear=1;
+        speed=20;
+    }
+    public void gear_change(int gearex)
+    {
+        System.out.println("Initial gear is : "+gear);
+        if(gear<7 && gear>0)
+        {
+            gear=gearex;
+            System.out.println("Gear changed Successfully\n");
+        }
+        else
+        {
+            System.out.println("Gear is out of range\n");
+        }
+
+    }
+
+    public void speed_up()
+    {
+        System.out.println("Initial speed is : "+speed);
+        if((speed+10)<100)
+        {
+            speed=speed+10;
+        }
+        else
+        {
+            System.out.println("Speed can not be increased above 100\n");
+        }
+    }
+    public void apply_break()
+    {
+        Scanner get=new Scanner(System.in);
+        int x;
+        System.out.println("1.Decrease speed\n2.Stop vehicle\n\nEnter your choice : ");
+        x=get.nextInt();
+        if(x==1)
+        {
+            if((speed-10)>0)
+            {
+                speed=speed-10;
+                System.out.println("Speed decreased successfully\n");
+            }
+            else
+            {
+                speed=0;
+                System.out.println("Vehicle stoped succefully\n");
+            }
+        }
+        if(x==2)
+        {
+            speed=0;
+            gear=0;
+        }
+        else
+        {
+            System.out.println("!!! INVALID INPUT !!!");
+        }
+
+    }
+    public void display()
+    {
+        System.out.println("Speed is : "+speed+"\tGear is : "+gear);
+    }
+
+}
+
+
+
+class car implements vehicle
+{
+    int gear , speed;
+
+    car(){
+        System.out.println("Car started successfully\n");
+        gear=1;
+        speed=30;
+    }
+    public void gear_change(int gearex)
+    {
+        System.out.println("Initial gear is : "+gear);
+        if(gear<7 && gear>0)
+        {
+            gear=gearex;
+            System.out.println("Gear changed Successfully current grear is : "+gear);
+        }
+        else
+        {
+            System.out.println("Gear is out of range\n");
+        }
+
+    }
+
+    public void speed_up()
+    {
+        System.out.println("Initial speed is : "+speed);
+        if((speed+15)<150)
+        {
+            speed=speed+15;
+        }
+        else
+        {
+            System.out.println("Speed can not be increased above 150\n");
+        }
+    }
+    public void apply_break()
+    {
+        Scanner get=new Scanner(System.in);
+        int x;
+        System.out.println("1.Decrease speed\n2.Stop vehicle\n\nEnter your choice : ");
+        x=get.nextInt();
+        if(x==1)
+        {
+            if((speed-15)>0)
+            {
+                speed=speed-15;
+                System.out.println("Speed decreased successfully\n");
+            }
+            else
+            {
+                speed=0;
+                System.out.println("Vehicle stoped succefully\n");
+            }
+        }
+        if(x==2)
+        {
+            speed=0;
+            gear=0;
+        }
+        else
+        {
+            System.out.println("!!! INVALID INPUT !!!");
+        }
+
+    }
+    public void display()
+    {
+        System.out.println("Speed is : "+speed+"\tGear is : "+gear);
+    }
+
+}
+
+
+public class interfacee
+{
+
+    public static void main(String[] args)
+    {
+        Scanner get = new Scanner(System.in);
+        vehicle v=null;
+        System.out.println("************************************\n");
+        int y;
+        bb:
+        do
+        {
+            System.out.println("SELECT VEHICLE\n\n1.Bicycle\n2.Bike\n3.Car\n");
+            y=get.nextInt();
+            System.out.println("************************************\n");
+
+            if(y==1)
+                v=new bicycle();
+            else if(y==2)
+                v=new bike();
+            else if(y==3)
+                v=new car();
+            else
+                break bb;
+            System.out.println("!!! INVALID INPUT !!!\n");
+
+            if(0<y && y<4)
+            {
+                aa:
+                do
+                {
+                    System.out.println("\n1.Speed up\n2.Change Gear\n3.Apply break\n4.Display vehicle status");
+                    int z=get.nextInt();
+                    switch(z)
+                    {
+                        case 1:
+                            v.speed_up();
+                            System.out.println("************************************\n");
+                            break;
+                        case 2:
+                            System.out.println("Which gear you want\n");
+                            int a=get.nextInt();
+                            v.gear_change(a);
+                            System.out.println("************************************\n");
+                            break;
+                        case 3:
+                            v.apply_break();
+                            System.out.println("************************************\n");
+                            break;
+                        case 4:
+                            v.display();
+                            System.out.println("************************************\n");
+                            break;
+                        case 5:
+                            break aa;
+                        default:
+                            System.out.println("INVALID INPUT");
+                    }
+                }while(true);
+            }
+
+
+        }while( y!=4);
+    }
+}
+
+
+
+
+
+
+Output : 
+
+
+
+
+SELECT VEHICLE
+
+1.Bicycle
+2.Bike
+3.Car
+
+1
+************************************
+
+Bicycle started successfully
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+1
+Initial SPEED is : 10
+Speed increased successfully current speed is : 15
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+2
+Which gear you want
+
+3
+Initial gear is : 1
+Gear changed Successfully current gear is : 3
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+3
+1.Decrease speed
+2.Stop vehicle
+
+Enter your choice : 
+1
+Speed decreased successfully current speed is : 10
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+4
+Speed is : 10	Gear is : 3
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+5
+SELECT VEHICLE
+
+1.Bicycle
+2.Bike
+3.Car
+
+2
+************************************
+
+Bike started successfully
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+1
+Initial speed is : 20
+Speed decreased successfully current speed is : 30
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+2
+Which gear you want
+
+4
+Initial gear is : 1
+Gear changed Successfully
+
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+3
+1.Decrease speed
+2.Stop vehicle
+
+Enter your choice : 
+2
+************************************
+
+1.Speed up
+2.Change Gear
+3.Apply break
+4.Display vehicle status
+5
+SELECT VEHICLE
+
+1.Bicycle
+2.Bike
+3.Car
+
+4
+************************************
+
+
+Process finished with exit code 0

@@ -1,0 +1,159 @@
+package First;
+import java.util.Scanner;
+class Exception2{
+    void arithmeticException(){
+        Scanner sc=new Scanner(System.in);
+        boolean valid;
+        valid=false;
+        while(!valid){
+            try{
+                System.out.println("enter Two Numbers ::");
+                int num1=sc.nextInt();
+                int num2=sc.nextInt();
+                double c=num1/num2;
+                System.out.println("Divison is ::" +c);
+                valid=true;
+            }
+            catch(Exception e){
+                System.out.println("\t\tCannot Divide by Zero \n\t Enter valid Denominator......\n");
+            }
+        }
+    }
+    void ArrayOutOfBound(int [] arr){
+        Scanner sc=new Scanner(System.in);
+        boolean valid;
+        valid=false;
+        while(!valid){
+            try{
+                System.out.println("\nEnter the index no. of element which you want to print ::");
+                int i=sc.nextInt();
+                System.out.println(arr[i]+ "is present at given index");
+                valid=true;
+            }
+            catch(Exception e){
+                System.out.println("\t\t Invalid index try again....\n");
+            }
+        }
+    }
+    void NumberFormat(){
+        Scanner sc=new Scanner(System.in);
+        boolean valid=false;
+        while(!valid){
+            try{
+                System.out.println("Enter the first Number ::");
+                String num1=sc.next();
+                System.out.println("Enter the Second Number ::");
+                String num2=sc.next();
+                int a=Integer.parseInt(num1);
+                int b=Integer.parseInt(num2);
+                System.out.println("\nEntered Numbers are integers :"+a+" ,"+b);
+                valid=true;
+            }
+            catch (Exception e){
+                System.out.println("\t\tNumbers You Have Enetr are not integrs \n\t\tPlease try again....\n");
+            }
+        }
+    }
+}
+
+
+public class Exception1 {
+    public static void main(String[] args){
+        Exception2 e=new Exception2();
+        Scanner sc=new Scanner(System.in);
+        int n;
+        do{
+            System.out.println("\nEnter the choice which you want to check type of error"
+                                                     +"\n\t\t1.]Arithmeticexceptipon"
+                                                     + "\t2]ArrayOutOfbound"
+                                                     + "\n\t\t3] NumberFormat"
+                                                     +"\t\t4] Exit");
+            n=sc.nextInt();
+            switch(n){
+                case 1:
+                    e.arithmeticException();
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+                    break;
+                case 2:
+                    int [] arr={1,4,5,2,3,8};
+                    e.ArrayOutOfBound(arr);
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+                    break;
+                case 3:
+                    e.NumberFormat();
+                    System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
+                    break;
+                case 4:
+                    n=0;
+                    System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    break;
+                default:
+                    System.out.println("Invalid Input !!!!");
+                    System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    
+            }
+        }while(n!=0);
+    }
+    
+}
+
+
+
+OUTPUT:
+
+
+Enter the choice which you want to check type of error
+		1.]Arithmeticexceptipon	2]ArrayOutOfbound
+		3] NumberFormat		4] Exit
+
+1
+enter Two Numbers ::
+25
+54
+Divison is ::0.0
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Enter the choice which you want to check type of error
+		1.]Arithmeticexceptipon	2]ArrayOutOfbound
+		3] NumberFormat		4] Exit
+1
+enter Two Numbers ::
+45
+2
+Divison is ::22.0
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Enter the choice which you want to check type of error
+		1.]Arithmeticexceptipon	2]ArrayOutOfbound
+		3] NumberFormat		4] Exit
+2
+
+Enter the index no. of element which you want to print ::
+3
+2is present at given index
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Enter the choice which you want to check type of error
+		1.]Arithmeticexceptipon	2]ArrayOutOfbound
+		3] NumberFormat		4] Exit
+3
+Enter the first Number ::
+54
+Enter the Second Number ::
+48
+
+Entered Numbers are integers :54 ,48
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Enter the choice which you want to check type of error
+		1.]Arithmeticexceptipon	2]ArrayOutOfbound
+		3] NumberFormat		4] Exit
+4
++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  02:30 min
+Finished at: 2022-12-06T10:45:44+05:30
+------------------------------------------------------------------------
+
